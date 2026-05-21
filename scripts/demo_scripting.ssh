@@ -1,0 +1,45 @@
+# sell-shell scripting demo
+# Run: ./sell-shell demo_scripting.ssh
+
+echo "=== sell-shell scripting demo ==="
+echo ""
+
+# --- if/then/else/fi ---
+echo "--- 1. if/then/else/fi ---"
+echo "checking if /tmp exists..."
+if test -d /tmp; then
+  echo "/tmp exists - good"
+else
+  echo "/tmp does not exist"
+fi
+echo ""
+
+# --- while/do/done ---
+echo "--- 2. while/do/done ---"
+echo "counting to 3..."
+export COUNT=1
+while test $COUNT -le 3; do
+  echo "  count: $COUNT"
+  export COUNT=$((COUNT + 1))
+done
+echo ""
+
+# --- for/in/do/done ---
+echo "--- 3. for/in/do/done ---"
+echo "iterating over words:"
+for word in alpha beta gamma delta; do
+  echo "  word: $word"
+done
+echo ""
+
+# --- Combined example ---
+echo "--- 4. Combined: find and process ---"
+echo "listing C source files..."
+echo "*.c *.h" | tr ' ' '\n'
+echo ""
+
+echo "--- 5. Pipelines in scripts ---"
+echo "the quick brown fox jumps" | tr ' ' '\n' | sort | head -3
+echo ""
+
+echo "=== scripting demo complete ==="

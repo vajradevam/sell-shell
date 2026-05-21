@@ -1,0 +1,7 @@
+build/
+sell-shell
+sell-shell-asan
+sell-shell-dbg
+*.o
+*.swp
+*~

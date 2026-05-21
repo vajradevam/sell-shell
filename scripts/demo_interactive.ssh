@@ -1,0 +1,55 @@
+# sell-shell interactive demo script
+# Run: ./sell-shell demo_interactive.ssh
+
+echo "=== sell-shell demo ==="
+echo ""
+
+# --- Basic commands ---
+echo "--- 1. Basic commands ---"
+echo "hello from sell-shell"
+pwd
+echo ""
+
+# --- Variables ---
+echo "--- 2. Variables ---"
+export NAME="sell-shell"
+echo "running: \$NAME"
+echo "exit code of last command: \$?"
+echo ""
+
+# --- Pipes ---
+echo "--- 3. Pipelines ---"
+echo "the quick brown fox" | tr a-z A-Z
+echo "one two three four" | tr ' ' '\n' | sort -r
+echo ""
+
+# --- Redirections ---
+echo "--- 4. Redirections ---"
+echo "saved output" > /tmp/demo_out.txt
+echo "appended output" >> /tmp/demo_out.txt
+echo "file contents:"
+cat < /tmp/demo_out.txt
+echo ""
+
+# --- Aliases ---
+echo "--- 5. Aliases ---"
+alias l="ls -la"
+type l
+echo ""
+
+# --- Job control ---
+echo "--- 6. Background job ---"
+echo "starting sleep in background..."
+sleep 0.5 &
+echo "background job running..."
+sleep 0.1
+jobs
+echo ""
+
+# --- Prompt ---
+echo "--- 7. Custom prompt ---"
+echo "PS1 can be customized with \\u, \\h, \\w, \\e (colors), etc."
+echo "  export PS1='\\[\\e[32m\\]\\u@\\h\\[\\e[0m\\]:\\[\\e[34m\\]\\w\\[\\e[0m\\]\\$ '"
+echo ""
+
+echo "=== demo complete ==="
